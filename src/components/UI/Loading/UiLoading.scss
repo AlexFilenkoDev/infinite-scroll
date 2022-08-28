@@ -1,0 +1,17 @@
+.ui-loading {
+  width: 120px;
+  height: 120px;
+  border: 10px dashed black;
+  border-radius: 50%;
+  margin:  0 auto;
+  animation: rotate 2s ease-in infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}

@@ -1,0 +1,7 @@
+export const SET_PASSENGERS: string = 'SET_PASSENGERS'
+export const GET_PASSENGERS: string = 'GET_PASSENGERS'
+export const SET_LOADING_TRUE: string = 'SET_LOADING_TRUE'
+export const SET_LOADING_FALSE: string = 'SET_LOADING_FALSE'
+export const GO_NEXT_PAGE: string = 'GO_NEXT_PAGE'
+export const SET_CURRENT_PAGE: string = 'SET_CURRENT_PAGE'
+export const SET_TOTAL_PAGES: string = 'SET_TOTAL_PAGES'
