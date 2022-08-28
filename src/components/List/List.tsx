@@ -1,4 +1,6 @@
-import React, { FC, useCallback, useRef, useEffect } from "react";
+import React, { FC, useRef, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 import { PassengerCard } from "../PassengerCard/PassengerCard";
 import { IListProps } from "../../interfaces";
 import { useAppDispatch } from "../hooks";
@@ -18,6 +20,7 @@ export const List: FC<IListProps> = ({ title, items }) => {
   
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleObserver = (entries: any) => {
     const target = entries[0];
     if (target.isIntersecting && pagesInfo.current < pagesInfo.total) {
@@ -37,19 +40,22 @@ export const List: FC<IListProps> = ({ title, items }) => {
     if (loader.current) {
       observer.current.observe(loader.current);
     }
-  }, [items]);
+  }, [handleObserver, items]);
 
 
   return (
     <div className="list">
       <div className="list__title">{title}</div>
       <div className="list__items">
-        {items.map((item, index) => (
+        {items.map((item, index) => {
+          const id = uuidv4()
+          
+          return (
           !(items.length === index + 1) ?
-          <PassengerCard passenger={item} />
+          <PassengerCard key={id} passenger={item} />
           :
-          <PassengerCard ref={loader} passenger={item} />
-        ))}
+          <PassengerCard key={id} ref={loader} passenger={item} />
+        )})}
       </div>
     </div>
   );
